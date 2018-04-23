@@ -26,7 +26,7 @@ A simple app that helps users view the food in the menu and can order it. Users 
 
 The users should be able to provide username and password and be authenticated into the system.
 
-<img src="https://github.com/eduhmik/Book-A-Meal/Screenshots/home.png "  width="400"/>  
+<img src="https://github.com/eduhmik/Book-A-Meal/gh-pages/Screenshots/home.png "  width="400"/>  
 
 ### Sign up page
 The users should be able to provide basic information to help create their accounts that will allow them to access the application and make orders on their meals.
