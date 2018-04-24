@@ -2,14 +2,14 @@ body
 {
 	margin: 0;
 	padding: 0;
-	background: url(bg.jpg);
+	background: url(../images/bg.jpg);
 	background-size: cover;
 	font-family: sans-serif;
 }
 .title
 {
 	text-align: center;
-	padding: 30px 0 20px;
+	padding: 50px 0 0 20px;
 }
 .title h1
 {
@@ -22,13 +22,13 @@ body
 .container
 {
 	width: 50%;
-	height: 400px;*
+	height: 450px;
 	background: #fff;
 	margin: 0 auto;
 	border:2px  solid #fff;
 	box-shadow: 0 15px 40px rgba(0,0,0,.5);
 }
-.containerb
+.containera
 {
 	width: 50%;
 	height: 500px;
@@ -39,30 +39,20 @@ body
 }
 .containerp
 {
-	width: 50%;
-	height: 600px;
+	width: 30%;
+	height: 200px;
 	background: #fff;
 	margin: 0 auto;
 	border:2px  solid #fff;
 	box-shadow: 0 15px 40px rgba(0,0,0,.5);
 }
-.containerlist
-{
-	width: 50%;
-	height: 300px;
-	background: #fff;
-	background: url(bg.jpg);
-	background-position: top;
-	margin: 0 auto;
-	border:2px  solid #fff;
-	box-shadow: 0 15px 40px rgba(0,0,0,.5);
-}
+
 .container .left
 {
 	float: left;
 	width: 50%;
 	height: 400px;
-	background: url(logo.jpg);
+	background: url(../images/logo.jpg);
 	background-size: cover;
 	box-sizing: border-box;
 }
@@ -228,4 +218,4 @@ h2 {
     text-align: left;
     background-color: #12bbad;
     color: white;
-}
+}*/
