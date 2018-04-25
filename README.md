@@ -22,6 +22,9 @@ A simple app that helps users view the food in the menu and can order it. Users 
 3. CSS
 4. JS
 
+Github pages link
+https://eduhmik.github.io/Book-A-Meal/
+
 ### Login Page
 
 The users should be able to provide username and password and be authenticated into the system.
@@ -35,6 +38,8 @@ The users should be able to provide basic information to help create their accou
 ### Home Page
 This is a page that will allow users to see the menu that is available and be able to book a meal from that page.
 <img src="https://github.com/eduhmik/Book-A-Meal/blob/gh-pages/Screenshots/home.png" width="600"/> 
+
+
 
 
 
