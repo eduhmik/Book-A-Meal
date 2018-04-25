@@ -104,7 +104,7 @@ class CreateMeal(MealParams, Resource):
         Triggered by a post request and adds a meal
         """
         args = self.param.parse_args()
-        event_data = {
+        meal_data = {
             'name':args['name'],
             'price':args['price'],
             'rsvp':[]
