@@ -32,14 +32,6 @@ class MealParams(object):
     param = reqparse.RequestParser()
     param.add_argument('name', type=str, required=False)
     param.add_argument('price', type=str, required=False)
-<<<<<<< HEAD
-class RetriveEventsParams(object):
-    """
-    Restrieve events endpoint params
-    """
-    param = reqparse.RequestParser()
-    param.add_argument('userEmail', type=str, required=True)
-=======
 class RetriveMealsParams(object):
     """
     Retrieves meals endpoint params
@@ -54,14 +46,10 @@ class RetrievesMenu(object):
     param = reqparse.RequestParser()
     param.add_argument('name', type=str, required=False)
     param.add_argument('price', type=str, required=False)
->>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
 class RsvpParams(object):
     """
     Rsvp endpoint params
     """
     param = reqparse.RequestParser()
-<<<<<<< HEAD
-    param.add_argument('clientEmail')
-=======
     param.add_argument('client_email')
->>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
+

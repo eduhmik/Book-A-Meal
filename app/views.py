@@ -5,17 +5,13 @@ from functools import wraps
 from app.Controller import Controller
 from app.EndPointParams import SignupParams, SigninParams, MealParams, ResetParams, RsvpParams
 
-<<<<<<< HEAD
-from flask_restful import  Resource
-=======
 from flask_restful import Resource
->>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
 from flask import session
 
 
 CONTROLLER = Controller()
 
-<<<<<<< HEAD
+
 def auth_required(func):
     """Wrapper to check user authorization"""
     @wraps(func)
@@ -26,9 +22,6 @@ def auth_required(func):
                     'message': 'Authentication is required to access this resource'}, 401
         return func(*args, **kargs)
     return auth
-
-=======
->>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
 class Signup(SignupParams, Resource):
     """
     Class provides logic for signing up a user
@@ -43,19 +36,11 @@ class Signup(SignupParams, Resource):
             "email":args['email'],
             "password":args['password']
         }
-<<<<<<< HEAD
-        resp = CONTROLLER.signupUser(user_data)
-=======
         resp = CONTROLLER.sign_up_user(user_data)
->>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
         if resp.get('success'):
             return resp, 201
         else:
-            return resp, 401
-<<<<<<< HEAD
-=======
-        
->>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
+            return resp, 401        
 class Authentication(SigninParams, Resource):
     """
     Class contains logic that authenticates the users
@@ -76,22 +61,14 @@ class Authentication(SigninParams, Resource):
         Triggered by a post request and logs in the user
         """
         args = self.param.parse_args()
-<<<<<<< HEAD
-        resp = CONTROLLER.signinUser(args['email'], args['password'])
-=======
         resp = CONTROLLER.sign_in_user(args['email'], args['password'])
->>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
         if resp.get('success'):
             session['user'] = args['email']
             session['signed_in'] = True
             return resp, 201
         else:
             return resp, 401
-<<<<<<< HEAD
-class ResetPassword(ResetParams, Resource):
-=======
 class ForgotPassword(ResetParams, Resource):
->>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
     """
     Class contains logic to reset users password
     """
@@ -101,21 +78,13 @@ class ForgotPassword(ResetParams, Resource):
         Triggered by a post request and resets users password
         """
         args = self.param.parse_args()
-<<<<<<< HEAD
-        resp = CONTROLLER.resetPassword(args['email'], args['password'])
-=======
         resp = CONTROLLER.reset_password(args['email'], args['password'])
->>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
         if resp.get('success'):
             return resp, 201
         else:
             return resp, 401
 
-<<<<<<< HEAD
-class CreateMeal(MealParams, Resource):
-=======
 class add_meal(MealParams, Resource):
->>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
     """
     Class contains logic to add and retrieve meal
     """
@@ -124,11 +93,7 @@ class add_meal(MealParams, Resource):
         """
         Triggered by get request and retrieves all meals
         """
-<<<<<<< HEAD
-        resp = CONTROLLER.retrieveAllMeals()
-=======
         resp = CONTROLLER.retrieve_all_mealss()
->>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
         if resp.get('success'):
             return resp, 201
         else:
@@ -139,20 +104,12 @@ class add_meal(MealParams, Resource):
         Triggered by a post request and adds a meal
         """
         args = self.param.parse_args()
-<<<<<<< HEAD
-        event_data = {
-=======
         meal_data = {
->>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
             'name':args['name'],
             'price':args['price'],
             'rsvp':[]
         }
-<<<<<<< HEAD
-        resp = CONTROLLER.addMeal(meal_data)
-=======
         resp = CONTROLLER.add_meal(meal_data)
->>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
         if resp.get('success'):
             return resp, 201
         else:
@@ -162,19 +119,11 @@ class Meal(Resource):
     Class contains logic to retrieveeingle meal and delete meals
     """
     @auth_required
-<<<<<<< HEAD
-    def put(self, eventId):
-        """
-        Triggered by a put request and retrieves a single meal
-        """
-        resp = CONTROLLER.retriveSingelMeal(session['user'], mealId)
-=======
     def put(self, mealId):
         """
         Triggered by a put request and retrieves a single meal
         """
         resp = CONTROLLER.retrieve_single_meal(session['user'], mealId)
->>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
         if resp.get('success'):
             return resp, 201
         else:
@@ -184,9 +133,6 @@ class Meal(Resource):
         """
         triggered by a delete request and deletes meal specified
         """
-<<<<<<< HEAD
-        resp = CONTROLLER.deleteSingleMeal(session['user'], mealId)
-=======
         resp = CONTROLLER.delete_single_meal(session['user'], mealId)
         if resp.get('success'):
             return resp, 201
@@ -202,13 +148,10 @@ class Menu(Resource):
         Triggered by a put request and retrieves menu
         """
         resp = CONTROLLER.retriveMenu(session['user'], menu)
->>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
         if resp.get('success'):
             return resp, 201
         else:
             return resp, 409
-<<<<<<< HEAD
-=======
     @auth_required
     def post(self):
         """
@@ -225,8 +168,6 @@ class Menu(Resource):
             return resp, 201
         else:
             return resp, 401
-   
->>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
 class Rsvp(RsvpParams, Resource):
     """
     Class manipulates Rsvp of meals
@@ -237,11 +178,7 @@ class Rsvp(RsvpParams, Resource):
         Triggered by a post method and adds user to rsvp list
         """
         args = self.param.parse_args()
-<<<<<<< HEAD
-        resp = CONTROLLER.addRsvp(session['user'], mealId, args['clientEmail'])
-=======
         resp = CONTROLLER.add_rsvp(session['user'], mealId, args['client_email'])
->>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
         if resp.get('success'):
             return resp, 201
         else:
@@ -252,11 +189,7 @@ class Rsvp(RsvpParams, Resource):
         Triggered ny get and retrieves a single rsvp
         """
         args = self.param.parse_args()
-<<<<<<< HEAD
-        resp = CONTROLLER.retriveRsvp(args['clientEmail'], mealId)
-=======
         resp = CONTROLLER.retrieve_rsvp(args['client_email'], mealId)
->>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
         if resp.get('success'):
             return resp, 201
         else:
