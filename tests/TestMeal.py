@@ -17,6 +17,7 @@ class TestMeals(unittest.TestCase):
 
     def testcreateMeal(self):
         self.assertTrue(self.meal.create_meal(self.meal_data).get('success')) 
+<<<<<<< HEAD
         self.assertEqual(1, len(self.meal.getMeals().get('message')))
 
     def testGetUserMeals(self):
@@ -24,10 +25,20 @@ class TestMeals(unittest.TestCase):
         self.assertEqual(1, len(self.meal.getMeals().get('message')))
 
         resp = self.meal.getUserMeals("test@bright.com")
+=======
+        self.assertEqual(1, len(self.meal.get_meals().get('message')))
+
+    def testget_user_meals(self):
+        self.assertTrue(self.meal.create_meal(self.meal_data).get('success')) 
+        self.assertEqual(1, len(self.meal.get_meals().get('message')))
+
+        resp = self.meal.get_user_meals("test@bright.com")
+>>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
         self.assertTrue(resp.get('success'))
         self.assertEqual(1, len(resp.get('message')))
     def testDuplicateMeal(self):
         self.assertTrue(self.meal.create_meal(self.meal_data).get('success')) 
+<<<<<<< HEAD
         self.assertEqual(1, len(self.meal.getMeals().get('message')))
 
         self.assertFalse(self.meal.create_meal(self.meal_data).get('success')) 
@@ -40,19 +51,41 @@ class TestMeals(unittest.TestCase):
     def testGetSingleMeal(self):
         self.assertTrue(self.meal.create_meal(self.meal_data).get('success')) 
         self.assertEqual(1, len(self.meal.getMeals().get('message')))
+=======
+        self.assertEqual(1, len(self.meal.get_meals().get('message')))
+
+        self.assertFalse(self.meal.create_meal(self.meal_data).get('success')) 
+        self.assertEqual(1, len(self.meal.get_meals().get('message')))
+    def testDifferentUserSamemeal_name(self):
+        self.assertTrue(self.meal.create_meal(self.meal_data).get('success')) 
+        self.assertEqual(1, len(self.meal.get_meals().get('message')))
+        self.assertTrue(self.meal.create_meal(self.meal_data2).get('success')) 
+        self.assertEqual(2, len(self.meal.get_meals().get('message')))
+    def testGetSingleMeal(self):
+        self.assertTrue(self.meal.create_meal(self.meal_data).get('success')) 
+        self.assertEqual(1, len(self.meal.get_meals().get('message')))
+>>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
 
         resp = self.meal.getMeal('test@bright.com','test meal')
         print(resp)
         self.assertTrue(resp.get('success'))
         self.assertIn('creator', resp.get("message"))
+<<<<<<< HEAD
     def testRsvpMeal(self):
         self.assertTrue(self.meal.create_meal(self.meal_data).get('success')) 
         self.assertEqual(1, len(self.meal.getmeals().get('message')))
         resp = self.meal.rsvpMeal('test@bright.com','test meal', 'test2@bright.com')
+=======
+    def testrsvp_meal(self):
+        self.assertTrue(self.meal.create_meal(self.meal_data).get('success')) 
+        self.assertEqual(1, len(self.meal.get_meals().get('message')))
+        resp = self.meal.rsvp_meal('test@bright.com','test meal', 'test2@bright.com')
+>>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
         self.assertTrue(resp.get('success'))
         self.assertIn('test2@bright.com', resp.get('message'))
     def testDeleteMeal(self):
         self.assertTrue(self.meal.create_meal(self.meal_data).get('success')) 
+<<<<<<< HEAD
         self.assertEqual(1, len(self.meal.getMeals().get('message')))
         resp = self.meal.deleteMeal('test@bright.com', 'test meal')
         self.assertTrue(resp.get('success')) 
@@ -61,6 +94,16 @@ class TestMeals(unittest.TestCase):
     def testEditMeal(self):
         self.assertTrue(self.meal.create_meal(self.meal_data).get('success')) 
         self.assertEqual(1, len(self.meal.getMeals().get('message')))
+=======
+        self.assertEqual(1, len(self.meal.get_meals().get('message')))
+        resp = self.meal.delete_meal('test@bright.com', 'test meal')
+        self.assertTrue(resp.get('success')) 
+        print(self.meal.get_user_meals("test@bright.com").get('message'))
+        self.assertEqual("No meals for this user", self.meal.get_user_meals("test@bright.com").get('message'))
+    def testEditMeal(self):
+        self.assertTrue(self.meal.create_meal(self.meal_data).get('success')) 
+        self.assertEqual(1, len(self.meal.get_meals().get('message')))
+>>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
 
         meal_data2 = {
             'name':'mymeal',
@@ -72,4 +115,8 @@ class TestMeals(unittest.TestCase):
 
         print(resp)
         self.assertTrue(resp.get('success'))
+<<<<<<< HEAD
         self.assertIn('mymeal', self.meal.getUserMeals("test@bright.com").get('message'))
+=======
+        self.assertIn('mymeal', self.meal.get_user_meals("test@bright.com").get('message'))
+>>>>>>> aa4422cd6bf4a290eb8cd09067f4315883f3884c
