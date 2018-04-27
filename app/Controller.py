@@ -127,6 +127,6 @@ class Controller(object):
         """
         retrieves all rsvp for single user
         """
-        resp = self.meals.getRsvpForMeal(email, meal)
+        resp = self.meals.get_rsvp_for_meal(email, meal)
         return resp
                       
